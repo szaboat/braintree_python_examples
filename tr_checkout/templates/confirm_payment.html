@@ -1,3 +1,19 @@
 $def with (transaction)
 $var title:Confirm Payment
 
+<h1>Payment Result</h1>
+
+<div>Thank you for your payment.</div>
+
+<h2>Transaction Details</h2>
+
+<table>
+    <tr><td>Amount:</td><td>$$100.00</td></tr>
+    <tr><td>Transaction ID:</td><td>$transaction.id</td></tr>
+    <tr><td>First Name:</td><td>$transaction.customer_details.first_name</td></tr>
+
+    <tr><td>Last Name:</td><td>$transaction.customer_details.last_name</td></tr>
+    <tr><td>Email:</td><td>$transaction.customer_details.email</td></tr>
+    <tr><td>Credit Card:</td><td>$transaction.credit_card_details.masked_number</td></tr>
+    <tr><td>Card Type:</td><td>$transaction.credit_card_details.card_type</td></tr>
+</table>

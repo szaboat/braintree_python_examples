@@ -1,5 +1,10 @@
-$def with (form, url)
+$def with (form, error_count, url)
 $var title:New Payment
+
+<h1>Payment: $$100.00</h1>
+
+$if error_count > 0:
+  <h3 id="error-count">$error_count error(s)</h3>
 
 <form action="$url" method="post">
   $:form.render()
