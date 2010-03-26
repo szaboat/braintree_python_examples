@@ -1,4 +1,4 @@
-# trcheckout
+# tr_checkout
 
 ## Overview
 
@@ -13,6 +13,7 @@ To run the exmaple:
 
 * pip install braintree
 * pip install web.py
+* Update checkout.py with your merchant_id, public_key and private_key
 * python checkout.py
 * Visit [http://localhost:8080/payments/new](http://localhost:8080/payments/new)
 
