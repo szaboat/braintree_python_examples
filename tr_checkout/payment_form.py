@@ -53,7 +53,7 @@ class PaymentForm(object):
                 class_=self.__error_class(self.errors.for_object("transaction").for_object("credit_card").on("expiration_date"))
             ),
             web.form.Textbox(
-                description="Cvv",
+                description="CVV",
                 name="transaction[credit_card][cvv]",
                 id="transaction_credit_card_cvv",
                 value=self.__get_nested_param("transaction", "credit_card", "cvv"),
