@@ -7,7 +7,7 @@ Braintree transparent redirect API.  We decided to use the
 [web.py](http://webpy.org/) framework because its simplicity
 allows us to clearly demonstrate concepts without added noise. This example
 was designed to run on Google App Engine. This example is identical to
-tr_checkout except:
+the tr_checkout example except:
 
 * the web.py source is placed at the top level of the example
 * the braintree package source is placed at the top level of the example
@@ -25,4 +25,3 @@ To run the exmaple:
 * point the Google App Engine dev server at this project directory:
   * dev_appserver.py tr_checkout_app_engine
 * Visit [http://localhost:8080/payments/new](http://localhost:8080/payments/new)
-
