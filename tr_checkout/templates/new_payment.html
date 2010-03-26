@@ -1,0 +1,7 @@
+$def with (form, url)
+$var title:New Payment
+
+<form action="$url" method="post">
+  $:form.render()
+  <input type="submit" value="Submit" />
+</form>
