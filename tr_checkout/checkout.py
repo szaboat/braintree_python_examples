@@ -33,6 +33,7 @@ class Payment:
 
 class Confirm:
     def GET(self):
+        # remove leading ? from query string
         query_string = web.ctx.query[1:]
         result = braintree.Transaction.confirm_transparent_redirect(query_string)
         if result.is_success:

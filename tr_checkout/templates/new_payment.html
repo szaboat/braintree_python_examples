@@ -6,7 +6,7 @@ $var title:New Payment
 $if error_count > 0:
   <h3 id="error-count">$error_count error(s)</h3>
 
-<form action="$url" method="post">
+<form action="$url" method="post" autocomplete="off">
   $:form.render()
   <input type="submit" value="Submit" />
 </form>
