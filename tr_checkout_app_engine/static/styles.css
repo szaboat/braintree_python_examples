@@ -1,0 +1,13 @@
+input.error {
+  border: 2px solid red;
+}
+
+div.errors {
+  display: inline;
+  margin-left: 0.5em;
+  color: red;
+}
+
+h3#error-count {
+  color: red;
+}
