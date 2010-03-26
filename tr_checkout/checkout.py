@@ -8,10 +8,10 @@ import web
 import payment_form
 
 braintree.Configuration.configure(
-    braintree.Environment.Development,
-    "integration_merchant_id",
-    "integration_public_key",
-    "integration_private_key"
+    braintree.Environment.Sandbox,
+    "your_merchant_id",
+    "your_public_key",
+    "your_private_key"
 )
 
 urls = (
