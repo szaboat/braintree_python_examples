@@ -22,6 +22,14 @@ class ErrorResult(object):
 
         if "verification" in attributes:
             self.credit_card_verification = CreditCardVerification(attributes["verification"])
+        else:
+            self.credit_card_verification = None
+
+        if "transaction" in attributes:
+            self.transaction = braintree.transaction.Transaction(attributes["transaction"])
+        else:
+            self.transaction = None
+
 
         if "transaction" in attributes:
             self.transaction = braintree.transaction.Transaction(attributes["transaction"])
