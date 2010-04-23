@@ -31,6 +31,10 @@ class ErrorResult(object):
             self.transaction = None
 
 
+        if "transaction" in attributes:
+            self.transaction = braintree.transaction.Transaction(attributes["transaction"])
+
+
     @property
     def is_success(self):
         """ Returns whether the result from the gateway is a successful response. """
