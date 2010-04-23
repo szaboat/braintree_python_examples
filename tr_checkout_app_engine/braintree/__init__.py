@@ -6,9 +6,12 @@ from error_codes import ErrorCodes
 from error_result import ErrorResult
 from errors import Errors
 from environment import Environment
-from paged_collection import PagedCollection
+from resource_collection import ResourceCollection
+from search import Search
 from subscription import Subscription
 from transaction import Transaction
+from subscription_search import SubscriptionSearch
 from successful_result import SuccessfulResult
 from transparent_redirect import TransparentRedirect
 from validation_error_collection import ValidationErrorCollection
+from version import Version
