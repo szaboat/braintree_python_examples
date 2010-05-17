@@ -12,9 +12,12 @@ class TransparentRedirect:
     def parse_and_validate_query_string(query_string):
         query_params = cgi.parse_qs(query_string)
         http_status = int(query_params["http_status"][0])
+        message = query_params.get("bt_message")
+        if message != None:
+            message = message[0]
 
         if Http.is_error_status(http_status):
-            Http.raise_exception_from_status(http_status)
+            Http.raise_exception_from_status(http_status, message)
 
         if not TransparentRedirect.is_valid_tr_query_string(query_string):
             raise ForgedQueryStringError
@@ -44,7 +47,7 @@ class TransparentRedirect:
         data = {}
         for key, val in params.iteritems():
             full_key = parent + "[" + key + "]" if parent else key
-            if type(val) == dict:
+            if isinstance(val, dict):
                 data.update(TransparentRedirect.__flatten_dictionary(val, full_key))
             else:
                 data[full_key] = val
