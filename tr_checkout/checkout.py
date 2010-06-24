@@ -28,21 +28,21 @@ class Payment:
         return render.new_payment(
             payment_form.PaymentForm().form(),
             0,
-            braintree.Transaction.transparent_redirect_create_url()
+            braintree.TransparentRedirect.url()
         )
 
 class Confirm:
     def GET(self):
         # remove leading ? from query string
         query_string = web.ctx.query[1:]
-        result = braintree.Transaction.confirm_transparent_redirect(query_string)
+        result = braintree.TransparentRedirect.confirm(query_string)
         if result.is_success:
             return render.confirm_payment(result.transaction)
         else:
             return render.new_payment(
                 payment_form.PaymentForm(result.params, result.errors).form(),
                 len(result.errors),
-                braintree.Transaction.transparent_redirect_create_url()
+                braintree.TransparentRedirect.url()
             )
 
 if __name__ == "__main__":
