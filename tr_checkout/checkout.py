@@ -3,15 +3,20 @@
 import urllib2
 urllib2.install_opener(urllib2.build_opener())
 
+import os
+parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.sys.path.insert(0,parentdir)
+from config import config
+
 import braintree
 import web
 import payment_form
 
 braintree.Configuration.configure(
     braintree.Environment.Sandbox,
-    "your_merchant_id",
-    "your_public_key",
-    "your_private_key"
+    config['BRAINTREE_MERCHANT_ID'],
+    config['BRAINTREE_PUBLIC_KEY'],
+    config['BRAINTREE_PRIVATE_KEY'],
 )
 
 urls = (

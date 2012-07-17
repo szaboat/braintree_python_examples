@@ -1,0 +1,20 @@
+$def with (subscription)
+$var title:Confirm Subscription
+
+<h1>Subscribe Result</h1>
+
+<p>Thank you for your subscription.</p>
+
+<h2>Subscription details:</h2>
+
+<pre>
+subscription.balance $subscription.balance
+subscription.merchant_account_id $subscription.merchant_account_id
+subscription.payment_method_token $subscription.payment_method_token
+subscription.plan_id $subscription.plan_id
+subscription.price $subscription.price
+subscription.status $subscription.status
+subscription.trial_duration $subscription.trial_duration
+subscription.trial_duration_unit $subscription.trial_duration_unit
+subscription.trial_period $subscription.trial_period
+</pre>
