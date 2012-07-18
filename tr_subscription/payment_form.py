@@ -1,6 +1,7 @@
 import web
 import braintree
 
+
 class PaymentForm(object):
     def __init__(self, params={}, errors=braintree.ValidationErrorCollection()):
         self.params = params
@@ -18,7 +19,7 @@ class PaymentForm(object):
                 id="customer_customer_first_name",
                 value=self.__get_nested_param("customer", "first_name"),
                 post=self.__error_message(self.errors.for_object("customer").for_object("customer").on("first_name")),
-                class_=self.__error_class(self.errors.for_object("customer").for_object("customer").on("first_name"))
+                class_=self.__error_class(self.errors.for_object("customer").for_object("customer").on("first_name")),
             ),
             web.form.Textbox(
                 description="Last Name",
@@ -66,7 +67,31 @@ class PaymentForm(object):
                 id="customer_credit_card_cardholder_name",
                 value=self.__get_nested_param("customer", "credit_card", "cardholder_name"),
                 post=self.__error_message(self.errors.for_object("customer").for_object("credit_card").on("cardholder_name")),
-                class_=self.__error_class(self.errors.for_object("customer").for_object("credit_card").on("cardholder_name")),
+                class_=self.__error_class(self.errors.for_object("customer").for_object("credit_card").on("cardholder_name"))
+            ),
+            web.form.Textbox(
+                description="Street",
+                name="customer[credit_card][billing_address][street_address]",
+                id="customer_credit_card_billing_address_street_address",
+                value=self.__get_nested_param("customer", "credit_card", "billing_address", "street_address"),
+                post=self.__error_message(self.errors.for_object("customer").for_object("credit_card").for_object("billing_address").on("street_address")),
+                class_=self.__error_class(self.errors.for_object("customer").for_object("credit_card").for_object("billing_address").on("street_address"))
+            ),
+            web.form.Textbox(
+               description="Country code",
+               name="customer[credit_card][billing_address][country_code_alpha2]",
+               id="customer_credit_card_billing_address_country_code_alpha2",
+               value=self.__get_nested_param("customer", "credit_card", "billing_address", "country_code_alpha2"),
+               post=self.__error_message(self.errors.for_object("customer").for_object("credit_card").for_object("billing_address").on("country_code_alpha2")),
+               class_=self.__error_class(self.errors.for_object("customer").for_object("credit_card").for_object("billing_address").on("country_code_alpha2"))
+            ),
+            web.form.Textbox(
+               description="Postal Code",
+               name="customer[credit_card][billing_address][postal_code]",
+               id="customer_credit_card_billing_address_postal_code",
+               value=self.__get_nested_param("customer", "credit_card", "billing_address", "postal_code"),
+               post=self.__error_message(self.errors.for_object("customer").for_object("credit_card").for_object("billing_address").on("postal_code")),
+               class_=self.__error_class(self.errors.for_object("customer").for_object("credit_card").for_object("billing_address").on("postal_code"))
             ),
             web.form.Hidden(
                 "tr_data",
@@ -93,4 +118,3 @@ class PaymentForm(object):
         for key in keys[1:]:
             val = val and val.get(key)
         return val
-

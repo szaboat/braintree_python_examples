@@ -1,13 +1,38 @@
-$def with (subscription)
+$def with (customer, subscription)
 $var title:Confirm Subscription
 
 <h1>Subscribe Result</h1>
 
 <p>Thank you for your subscription.</p>
 
-<h2>Subscription details:</h2>
+<h2>Details:</h2>
 
 <pre>
+# Customer
+
+customer.first_name $customer.first_name
+customer.last_name $customer.last_name
+customer.email $customer.email
+
+# Addresses
+
+first_name,
+last_name,
+country_code_alpha2,
+country_code_alpha3,
+extended_address,
+locality,
+country_code_numeric,
+postal_code,
+gateway,
+country_name,
+region,
+customer_id,
+company,
+street_address
+
+# Subscription
+
 subscription.balance $subscription.balance
 subscription.merchant_account_id $subscription.merchant_account_id
 subscription.payment_method_token $subscription.payment_method_token

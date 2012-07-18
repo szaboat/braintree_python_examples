@@ -50,7 +50,7 @@ class Confirm:
                 "plan_id": "plan_1",
             })
             if subscription_result.is_success:
-                return render.confirm_subscription(subscription_result.subscription)
+                return render.confirm_subscription(confirm_result.customer, subscription_result.subscription)
             else:
                 return render.new_subscription(
                             payment_form.PaymentForm(confirm_result.params, confirm_result.errors).form(),
