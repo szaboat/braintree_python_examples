@@ -43,7 +43,6 @@ class Confirm:
         # remove leading ? from query string
         query_string = web.ctx.query[1:]
         confirm_result = braintree.TransparentRedirect.confirm(query_string)
-        import pdb;pdb.set_trace()
         if confirm_result.is_success:
             token = confirm_result.customer.credit_cards[0].token
             subscription_result = braintree.Subscription.create({

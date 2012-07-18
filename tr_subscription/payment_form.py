@@ -60,6 +60,14 @@ class PaymentForm(object):
                 post=self.__error_message(self.errors.for_object("customer").for_object("credit_card").on("cvv")),
                 class_=self.__error_class(self.errors.for_object("customer").for_object("credit_card").on("cvv"))
             ),
+            web.form.Textbox(
+                description="Cardholder name",
+                name="customer[credit_card][cardholder_name]",
+                id="customer_credit_card_cardholder_name",
+                value=self.__get_nested_param("customer", "credit_card", "cardholder_name"),
+                post=self.__error_message(self.errors.for_object("customer").for_object("credit_card").on("cardholder_name")),
+                class_=self.__error_class(self.errors.for_object("customer").for_object("credit_card").on("cardholder_name")),
+            ),
             web.form.Hidden(
                 "tr_data",
                 value=braintree.Customer.tr_data_for_create({}, "http://localhost:8080/subscriptions/confirm/")
